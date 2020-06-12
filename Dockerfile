@@ -18,4 +18,4 @@ ENV JAVA_HOME /usr/lib/jvm/open-jdk
 #ADD eula.txt /data/eula.txt
 
 # Start minecraft on launch.
-CMD ["java", "-Xms1G", "-Xmx10G", "-jar", "/data/minecraft-server.jar", "nogui"]
+CMD ["java", "-Xms1G", "-Xmx10G", "-XX:+UseG1GC", "-jar", "/data/minecraft-server.jar", "nogui"]
