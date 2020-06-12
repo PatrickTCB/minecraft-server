@@ -1,10 +1,10 @@
 # Pull base image.
-FROM ubuntu:latest
+FROM ubuntu:18.04
 
 # Install Java.
 RUN \
   apt-get update && \
-  apt-get install -y default-jdk
+  apt-get install -y openjdk-8-jdk-headless
 
 
 # Define working directory.
@@ -18,4 +18,4 @@ ENV JAVA_HOME /usr/lib/jvm/open-jdk
 #ADD eula.txt /data/eula.txt
 
 # Start minecraft on launch.
-CMD ["java", "-jar", "/data/minecraft-server.jar", "nogui"]
+CMD ["java", "-Xms1G", "-Xmx10G", "-jar", "/data/minecraft-server.jar", "nogui"]
